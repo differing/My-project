@@ -1,11 +1,11 @@
 # Relish-Time-an-Angular-App
 
-Softuni Angular Project Defense - Regular Exam - April 2024
+Softuni Angular Project Defense - Regular Exam - octomber 2024
 Angular-Node-Express-Typescript
 
 ## Intro
 
-An application project built on a stack using **Node.js** and **Express** for the *back-end*, and **Angular CLI version 16** for the *front-end*. All data is stored and fetched from the non-relational database **MongoDB**.
+An application project built on a stack using **Node.js** and **Express** for the *back-end*, for the *front-end*. All data is stored and fetched from the non-relational database **MongoDB**.
 
 **Angular CLI** can be used in the project in order to create components, services, routing etc. And you can access all the commands for client, angular cli and server from the root directly.
 
