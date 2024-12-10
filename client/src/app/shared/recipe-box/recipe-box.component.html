@@ -1,0 +1,52 @@
+<div class="box-container">
+  <ng-container *ngIf="isHomePage">
+    <h1 class="center">--- Last Added Recipes ---</h1>
+    <hr />
+  </ng-container>
+  <div class="container">
+    <div class="recipe-card" *ngFor="let recipe of recipes">
+      <aside>
+        <div class="image">
+          <img src="{{ recipe.image }}" alt="{{ recipe.name }}" />
+        </div>
+        <ng-container *ngIf="!isProfile">
+          <button
+            [disabled]="isOwner(recipe.owner._id) || isAlreadyLikeIt(recipe.likes)"
+            (click)="like(recipe._id, recipe.likes)"
+            class="button"
+          >
+            <i class="fa-regular fa-heart"></i>
+          </button>
+        </ng-container>
+      </aside>
+
+      <a routerLink="/recipes/{{ recipe._id }}">
+        <article>
+          <h2>{{ recipe.name | slice : 15 }}</h2>
+          <h3 class="uppercase">{{ recipe.mealType }}</h3>
+
+          <ul>
+            <li>
+              <i class="fa-solid fa-heart"></i
+              ><span>{{ recipe.likes.length }}</span>
+            </li>
+            <li>
+              <i class="fa-regular fa-clock"></i
+              ><span>{{ recipe.time }}min</span>
+            </li>
+            <li>
+              <i class="fa-regular fa-circle-dot"></i
+              ><i class="fa-regular fa-circle"></i
+              ><i class="fa-regular fa-circle"></i
+              ><span>{{ recipe.level }}</span>
+            </li>
+            <li>
+              <i class="fa-solid fa-fire icon-users"></i
+              ><span>{{ recipe.calories }}</span>
+            </li>
+          </ul>
+        </article>
+      </a>
+    </div>
+  </div>
+</div>

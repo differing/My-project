@@ -1,0 +1,110 @@
+@import url("https://fonts.googleapis.com/css2?family=DynaPuff:wght@400..700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Play:wght@400;700&display=swap");
+
+h1 {
+  font-family: "DynaPuff", system-ui;
+  font-optical-sizing: auto;
+  font-weight: 800;
+  font-style: normal;
+  font-variation-settings: "wdth" 100;
+}
+
+h1 a {
+  text-decoration: none;
+  color: inherit;
+}
+
+nav {
+  position: fixed;
+  top: 0;
+  width: 100svw;
+  background-color: var(--nav-bg);
+  display: flex;
+  text-wrap: nowrap;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 2;
+  overflow: hidden;
+}
+
+.nav-title {
+  margin: 0;
+  padding: 5px 20px 0 20px;
+}
+
+.nav-list ul {
+  font-size: 18px;
+  font-weight: 700;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: inline-flex;
+  gap: 0.5rem;
+}
+
+.nav-list ul:last-child {
+  padding-right: 1em;
+}
+
+.nav-list li {
+  margin: 0 0.5rem;
+  border-radius: 1em 1em 0 0;
+}
+
+.nav-list li.active {
+  view-transition-name: activeNavTab;
+  background: var(--body-bg);
+  position: relative;
+}
+
+.nav-list li:nth-child(1) a {
+  view-transition-name: navLink-1;
+}
+
+.nav-list li:nth-child(2) a {
+  view-transition-name: navLink-2;
+}
+
+.nav-list li:nth-child(3) a {
+  view-transition-name: navLink-3;
+}
+
+::view-transition-group(activeNavTab) {
+  animation-duration: 500ms;
+  animation-timing-function: ease-in-out;
+}
+
+.nav-list li.active::before,
+.nav-list li.active::after {
+  --border-radius: 1rem;
+
+  content: "";
+  position: absolute;
+  width: var(--border-radius);
+  height: var(--border-radius);
+  background: var(--nav-bg);
+}
+
+.nav-list li.active::before {
+  left: calc(var(--border-radius) * -1);
+  bottom: 0;
+  box-shadow: 7px 7px 0 7px var(--body-bg);
+  border-radius: 0 0 100vw 0;
+}
+.nav-list li.active::after {
+  right: calc(var(--border-radius) * -1);
+  bottom: 0;
+  box-shadow: -7px 7px 0 7px var(--body-bg);
+  border-radius: 0 0 0 100px;
+}
+
+.nav-list a {
+  box-sizing: border-box;
+  padding: 1rem 1.5rem 1rem 1.5rem;
+  color: rgb(42, 43, 46);
+  display: block;
+  text-decoration: none;
+  position: relative;
+  z-index: 10;
+}

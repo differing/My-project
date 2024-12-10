@@ -1,0 +1,94 @@
+<section class="single-page-recipe spad">
+  <div class="recipe-top">
+    <div class="container-fluid">
+      <div class="recipe-title">
+        <span
+          >~ {{ ingredients?.length }} ingredients / {{ recipe?.time }} minutes
+          / {{ recipe?.level }} / recipe</span
+        >
+        <h2>{{ recipe?.name }}</h2>
+        <ul class="tags">
+          <li>{{ recipe?.mealType }}</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-5">
+        <div class="ingredients-item">
+          <div class="intro-item">
+            <img src="{{ recipe?.image }}" alt="{{ recipe?.name }}" />
+            <h2>{{ recipe?.name }}</h2>
+            <div class="rating">
+              <i class="fa fa-heart"> {{ recipe?.likes?.length }} likes</i>
+            </div>
+            <div class="reviews">
+              From: {{ recipe?.createdAt | date }} <br />
+              Since: {{ recipe?.createdAt || "" | elapsedTime }}
+            </div>
+            <div class="recipe-time">
+              <ul>
+                <li>
+                  Prep time: <span>{{ recipe?.time }} min</span>
+                </li>
+                <li>
+                  Chalories: <span>{{ recipe?.calories }}</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="ingredient-list">
+            <div class="recipe-btn" *ngIf="isOwner">
+              <a (click)="onEdit()">Edit</a>
+              <a (click)="onDelete()" class="black-btn">Delete</a>
+            </div>
+            <div class="list-item">
+              <h5>Ingredients</h5>
+              <div class="salad-list">
+                <h6>For the recipe</h6>
+                <ul>
+                  <li *ngFor="let ingr of ingredients">{{ ingr }}</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="nutrition-fact">
+          <div class="nutri-title">
+            <h5>Liked by:</h5>
+            <ul>
+              <li *ngFor="let like of recipe?.likes">{{ like.email || "" }}</li>
+            </ul>
+          </div>
+          <ul>
+            <li>Author:</li>
+            <li>{{ recipe?.owner?.username }}</li>
+          </ul>
+        </div>
+      </div>
+      <div class="col-lg-7">
+        <div class="recipe-right">
+          <div class="instruction-list">
+            <h3>Instructions</h3>
+            <ul>
+              <li *ngFor="let step of descriptionArr; let i = index">
+                <span>Step {{ i + 1 }}</span>
+                {{ step }}
+              </li>
+            </ul>
+          </div>
+          <button *ngIf="!showComments" (click)="toggleComments()">
+            Show Comments
+          </button>
+          <button *ngIf="showComments" (click)="toggleComments()">
+            Hide Comments
+          </button>
+          <ng-container *ngIf="showComments">
+            <app-comments></app-comments>
+          </ng-container>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
