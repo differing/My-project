@@ -1,5 +1,3 @@
-# Relish-Time-an-Angular-App
-
 Softuni Angular Project Defense - Regular Exam - octomber 2024
 Angular-Node-Express-Typescript
 
