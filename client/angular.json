@@ -88,10 +88,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "Relish-Time-App:build:production"
+              "buildTarget": "Relish-Time-App:build:production"
             },
             "development": {
-              "browserTarget": "Relish-Time-App:build:development"
+              "buildTarget": "Relish-Time-App:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -99,7 +99,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "Relish-Time-App:build"
+            "buildTarget": "Relish-Time-App:build"
           }
         },
         "test": {
