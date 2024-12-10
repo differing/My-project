@@ -15,9 +15,6 @@ To use angular commands, you need to install angular cli. For that, run:
 *npm install -g @angular/cli*
 
 
-
-Enter the directory: *cd ./GitHub/Relish-Time-an-Angular-App/*
-
 The directory contains files created by angular-cli and two directories named client and REST_API. The client directory contains all the angular related code and the REST_API directory contains all the node/express related code.
 
 Install the dependencies: npm install
