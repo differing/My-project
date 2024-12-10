@@ -7,10 +7,6 @@ const routes: Routes = [
   {
     path: '',
     pathMatch: 'full',
-    redirectTo: '/',
-  },
-  {
-    path: '',
     component: HomeComponent,
     data: {
       title: 'Relish Time App',
