@@ -27,6 +27,9 @@
         <li (click)="activeToggle($event)" routerLinkActive="active">
           <a routerLink="auth/profile">{{ username }}'s profile</a>
         </li>
+        <li (click)="activeToggle($event)" routerLinkActive="active">
+          <a routerLink="/contacts">Contacts</a>
+        </li>
         <li
           (click)="logout()"
           (click)="activeToggle($event)"
